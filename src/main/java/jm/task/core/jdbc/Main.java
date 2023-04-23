@@ -3,10 +3,11 @@ import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         UserService uService = new UserServiceImpl();
 
@@ -18,13 +19,15 @@ public class Main {
 
         uService.removeUserById(1);
 
-        List<User> Table = uService.getAllUsers();
-        for (User user: Table){
+
+
+        List<User> table = uService.getAllUsers();
+        for (User user: table){
             System.out.println(user.toString());
         }
 
         uService.cleanUsersTable();
-        uService.dropUsersTable();
+        //uService.dropUsersTable();
     }
 }
 

@@ -14,18 +14,13 @@ public class Util {
     /**
      * Метод для коннекта
      */
-    public static Connection getConnection() {
-        Connection con = null;
+    public static Connection getConnection() throws SQLException {
         try {
             Class.forName(DB_DRIVER);
-            con = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
-
-
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            System.err.println("Connection Error");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
-        return con;
+        return DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
     }
 
 }

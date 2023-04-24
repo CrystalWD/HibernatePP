@@ -27,7 +27,7 @@ public class Main {
         }
 
         uService.cleanUsersTable();
-        //uService.dropUsersTable();
+        uService.dropUsersTable();
     }
 }
 

@@ -1,6 +1,12 @@
 package jm.task.core.jdbc.model;
 
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
 
 @Entity
 @Table(name = "users")
@@ -63,6 +69,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "[ID-" + id + "]" + " Name: " + name + ", LastName: " + lastName + ", Age: " + age;
+        return "[ID-" + this.getId() + "]" + " Name: " + this.getName() + ", LastName: " + this.getLastName() + ", Age: " + this.getAge();
     }
 }
